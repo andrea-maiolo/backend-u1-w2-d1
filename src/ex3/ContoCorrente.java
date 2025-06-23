@@ -14,23 +14,20 @@ public class ContoCorrente {
         this.nMovimenti = 0;
     }
 
-    public void preleva(double x) {
-        try {
-            if (nMovimenti < maxMovimenti) {
-                if (saldo - x <= 0) {
-                    nMovimenti++;
-                    throw new BancaException("saldo in rosso");
-                } else {
-                    saldo = saldo - x;
-                    nMovimenti++;
-                }
+    public void preleva(double x) throws BancaException {
+        if (nMovimenti < maxMovimenti) {
+            if (saldo - x <= 0) {
+                nMovimenti++;
+                throw new BancaException("saldo in rosso");
             } else {
-                saldo = saldo - x - 0.50;
+                saldo = saldo - x;
                 nMovimenti++;
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } else {
+            saldo = saldo - x - 0.50;
+            nMovimenti++;
         }
+
     }
 
 

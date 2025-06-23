@@ -17,7 +17,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Logger logger = LoggerFactory.getLogger(Main.class);
         try {
-
             logger.info("dammi il numero di litri consumati ");
             int litri = Integer.parseInt(scanner.nextLine());
             logger.info("dammi il numero di kilometri fatti");
@@ -39,6 +38,9 @@ public class Main {
         try {
             logger.info("dammi il numero di litri consumati ");
             double litri = Double.parseDouble(scanner.nextLine());
+            if (litri == 0) {
+                throw new RuntimeException("non pue essere 0");
+            }
             logger.info("dammi il numero di kilometri fatti");
             double km = Double.parseDouble(scanner.nextLine());
             double consumo = km / litri;

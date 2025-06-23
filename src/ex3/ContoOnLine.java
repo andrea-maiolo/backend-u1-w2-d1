@@ -22,8 +22,8 @@ public class ContoOnLine extends ContoCorrente {
             } else {
                 throw new BancaException("il prelievo non e disponibile");
             }
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
+        } catch (BancaException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 }

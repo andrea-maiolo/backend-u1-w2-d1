@@ -20,6 +20,7 @@ public class Main {
         do {
             logger.info("dammi un numero da inserire nell array, premi 0 per uscire");
             userInput = Integer.parseInt(scanner.nextLine());
+            if (userInput == 0) break;
             logger.info("dimmi la posizione nella quale inserirlo da 1 a 5");
             int userPosition = Integer.parseInt(scanner.nextLine());
             if (userPosition <= 0 || userPosition > 5) {
@@ -31,5 +32,6 @@ public class Main {
 
         } while (userInput != 0);
 
+        scanner.close();
     }
 }
